@@ -1,0 +1,10 @@
+.detailContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.tableDetail td {
+  padding-right: 20px;
+}
+
