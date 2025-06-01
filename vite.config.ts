@@ -17,6 +17,7 @@ export default defineConfig({
     alias: [
       { find: '@', replacement: '/src' },
       { find: '@components', replacement: '/src/components' },
+      { find: '@InputText', replacement: '/src/components/common/InputText' }, 
       { find: '@pages', replacement: '/src/pages' },
       { find: '@layouts', replacement: '/src/layouts' },
       { find: '@mock', replacement: '/src/mock' }, 
@@ -24,6 +25,7 @@ export default defineConfig({
       { find: '@routerPaths', replacement: '/src/shared/const/routerPaths.ts' }, 
       { find: '@fetchPaths', replacement: '/src/shared/const/fetchPaths.ts' }, 
       { find: '@jsonUtilities', replacement: '/src/shared/lib/jsonUtilities.ts' }, 
+      { find: '@validation', replacement: '/src/shared/lib/validation.ts' }, 
     ],
     //*/
   },  

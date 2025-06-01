@@ -29,6 +29,7 @@
       "@appRoot/*": ["./*"],
       "@src/*": ["./src/*"],
       "@components/*": ["./src/components/*"],
+      "@InputText": ["./src/components/common/InputText"],
       "@pages/*": ["./src/pages/*"],
       "@layouts/*": ["./src/layouts/*"],
       "@mock/*": ["./src/mock/*"],
@@ -36,6 +37,7 @@
       "@routerPaths": ["./src/shared/const/routerPaths.ts"],
       "@fetchPaths": ["./src/shared/const/fetchPaths.ts"],
       "@jsonUtilities": ["./src/shared/lib/jsonUtilities.ts"],
+      "@validation": ["./src/shared/lib/validation.ts"],
     },
   },
   "include": ["src"]
