@@ -1,10 +1,13 @@
 import { NavLink, NavLinkRenderProps } from 'react-router-dom'
 
 import { ROUTER_PATHS } from '@routerPaths'
+import { useAuthContext } from '@src/context/AuthContextProvider';
 
 
 // Заголовок приложения с главным меню
 const AppHeader = () => {
+
+    const authContext = useAuthContext();
 
     // Отображение активного маршрута в меню приложения с пом. соотв. css-класса
     const getNavLinkClassName = ({ isActive }: NavLinkRenderProps) => {
@@ -25,6 +28,8 @@ const AppHeader = () => {
           <li><NavLink to={ROUTER_PATHS.locations} className={getNavLinkClassName}>Локации</NavLink></li>
           <li><NavLink to={ROUTER_PATHS.episodes} className={getNavLinkClassName}>Эпизоды</NavLink></li>
         </ul>
+        
+        <div>Пользователь: {authContext?.userName}</div>
     </>
   )
 }

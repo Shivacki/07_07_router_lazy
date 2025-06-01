@@ -4,6 +4,7 @@ import { ROUTER_PATHS } from '@routerPaths'
 import About from '@pages/About'
 import Home from '@pages/Home'
 import NotFound from '@pages/NotFound'
+import Login from '@pages/Login'
 import CategoryLayout from '@layouts/CategoryLayout'
 import ItemLayout from '@layouts/ItemLayout'
 import Characters from '@pages/Characters'
@@ -33,6 +34,8 @@ const AppRouter = () => {
         <Route path={ROUTER_PATHS.locations + '/:id'} element={<Location/>}/>
         <Route path={ROUTER_PATHS.episodes + '/:id'} element={<Episode/>}/>
       </Route>
+
+      <Route path={ROUTER_PATHS.login} element={<Login/>}/>
       
       <Route path='*' element={<NotFound/>}/>
     </Routes>

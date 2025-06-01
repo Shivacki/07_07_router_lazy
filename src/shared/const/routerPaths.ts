@@ -4,5 +4,6 @@ export const ROUTER_PATHS = {
   characters: '/characters',
   episodes: '/episodes',
   locations: '/locations',
+  login: '/login', 
 }
 

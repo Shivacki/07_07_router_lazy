@@ -15,7 +15,7 @@ export default defineConfig({
 
     ///*
     alias: [
-      { find: '@', replacement: '/src' },
+      { find: '@src', replacement: '/src' },
       { find: '@components', replacement: '/src/components' },
       { find: '@InputText', replacement: '/src/components/common/InputText' }, 
       { find: '@pages', replacement: '/src/pages' },
