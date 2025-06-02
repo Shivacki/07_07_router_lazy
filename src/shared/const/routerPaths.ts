@@ -5,5 +5,6 @@ export const ROUTER_PATHS = {
   episodes: '/episodes',
   locations: '/locations',
   login: '/login', 
+  logout: '/logout', 
 }
 

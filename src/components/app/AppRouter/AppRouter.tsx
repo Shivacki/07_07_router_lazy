@@ -5,6 +5,7 @@ import About from '@pages/About'
 import Home from '@pages/Home'
 import NotFound from '@pages/NotFound'
 import Login from '@pages/Login'
+import Logout from '@pages/Logout'
 import CategoryLayout from '@layouts/CategoryLayout'
 import ItemLayout from '@layouts/ItemLayout'
 import Characters from '@pages/Characters'
@@ -23,6 +24,9 @@ const AppRouter = () => {
       <Route path={ROUTER_PATHS.home} element={<Home/>}/>
       <Route path={ROUTER_PATHS.about} element={<About/>}/>
 
+      <Route path={ROUTER_PATHS.login} element={<Login/>}/>
+      <Route path={ROUTER_PATHS.logout} element={<Logout/>}/>
+      
       <Route element={<CategoryLayout/>}> 
         <Route path={ROUTER_PATHS.characters} element={<Characters/>}/>
         <Route path={ROUTER_PATHS.locations} element={<Locations/>}/>
@@ -35,8 +39,6 @@ const AppRouter = () => {
         <Route path={ROUTER_PATHS.episodes + '/:id'} element={<Episode/>}/>
       </Route>
 
-      <Route path={ROUTER_PATHS.login} element={<Login/>}/>
-      
       <Route path='*' element={<NotFound/>}/>
     </Routes>
   )
