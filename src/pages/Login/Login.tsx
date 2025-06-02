@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'
+import { useEffect, useLayoutEffect } from 'react';
+import { useNavigate, Navigate } from 'react-router-dom'
 
 import Signin, { SigninInfoModel } from '@components/auth/Signin'
 import { useAuthContext } from '@src/context/AuthContextProvider';
@@ -9,16 +9,17 @@ import { ROUTER_PATHS } from '@routerPaths'
 const Login = () => {
 
   const navigate = useNavigate();
+  
   const authContext = useAuthContext();
+  console.log('Login authContext: ', authContext);
+  
 
   const handleSigninSubmit = async (data: SigninInfoModel) => {
-    console.log('authContext: ', authContext);
+    console.log('handleSigninSubmit authContext: ', authContext);
     
     authContext?.signin(data.email, 
       () => {
-        console.log('signin success, user: ', authContext.userName);
         navigate(ROUTER_PATHS.home);
-        setTimeout(() => console.log('user: ', authContext.userName), 100);
       }
     );
     
@@ -30,17 +31,34 @@ const Login = () => {
     
     if (!!authContext?.userName) {
       console.log('already logged ', authContext?.userName);
-      navigate(ROUTER_PATHS.home);
+      navigate(-1);
+      // navigate(ROUTER_PATHS.home);
     }
   });
+  */
 
+  ///*
+  // При попытке переключения на страницу Login при уже залогиненном юзере возвращаем обратно
+  useEffect(() => {
+    if (!!authContext?.userName) {
+      // console.log('Login navigate(-1)');
+      navigate(-1);
+    }
+  }, []);
+  //*/
 
-  if (!!authContext?.userName)
-    return <></>
+  /*
+  if (!!authContext?.userName) {
+    console.log('Login navigate(-1)');
+    // navigate(-1);
+    return <Navigate to='-1' replace />
+  }
   */
 
   return (
-    <Signin onSubmit = {handleSigninSubmit}/>
+    <>
+      {!authContext?.userName && <Signin onSubmit = {handleSigninSubmit}/>}
+    </>
   )
 }
 

@@ -39,7 +39,6 @@ export default AppHeader
 const NavLinkAuth = () => {
 
   const authContext = useAuthContext();
-
   
   if (!authContext?.userName) {
     return (
