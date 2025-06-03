@@ -9,6 +9,7 @@ export interface AuthUser {
   userName: UserName;
   signin: (newUserName: string, afterSigninCallback: AfterSigninCallback) => void;
   signout: (afterSignoutCallback: AfterSignoutCallback) => void;
+  isAuthorized: () => boolean;
 }
 
 
@@ -43,10 +44,15 @@ const AuthContextProvider = ({ children }: PropsWithChildren) => {
     afterSignoutCallback();
   }
 
+  const isAuthorized = () => {
+    return !!userName;
+  }
+
   const value: AuthUser = {
     userName,
     signin,
     signout,
+    isAuthorized,
   }
 
 

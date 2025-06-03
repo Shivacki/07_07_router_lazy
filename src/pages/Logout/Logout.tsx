@@ -11,8 +11,8 @@ const Logout = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // if (!!authContext?.userName)
-    authContext?.signout(() => navigate(ROUTER_PATHS.home));
+    // if (authContext?.isAuthorized())
+    authContext?.signout(() => navigate(ROUTER_PATHS.home, {replace: true}));
   }, []);
 
 

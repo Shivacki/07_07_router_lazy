@@ -19,7 +19,7 @@ const Login = () => {
     
     authContext?.signin(data.email, 
       () => {
-        navigate(ROUTER_PATHS.home);
+        navigate(ROUTER_PATHS.home, {replace: true});
       }
     );
     
@@ -40,7 +40,7 @@ const Login = () => {
   ///*
   // При попытке переключения на страницу Login при уже залогиненном юзере возвращаем обратно
   useEffect(() => {
-    if (!!authContext?.userName) {
+    if (authContext?.isAuthorized()) {
       // console.log('Login navigate(-1)');
       navigate(-1);
     }
@@ -57,7 +57,7 @@ const Login = () => {
 
   return (
     <>
-      {!authContext?.userName && <Signin onSubmit = {handleSigninSubmit}/>}
+      {!authContext?.isAuthorized() && <Signin onSubmit = {handleSigninSubmit}/>}
     </>
   )
 }

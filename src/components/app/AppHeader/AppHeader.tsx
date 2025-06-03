@@ -40,7 +40,7 @@ const NavLinkAuth = () => {
 
   const authContext = useAuthContext();
   
-  if (!authContext?.userName) {
+  if (!authContext?.isAuthorized()) {
     return (
       <NavLink to={ROUTER_PATHS.login} className={getNavLinkClassName}>Войти</NavLink>
     )
