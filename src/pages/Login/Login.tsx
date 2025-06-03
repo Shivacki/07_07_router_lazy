@@ -1,59 +1,46 @@
-import { useEffect, useLayoutEffect } from 'react';
-import { useNavigate, Navigate } from 'react-router-dom'
+import { useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom'
 
 import Signin, { SigninInfoModel } from '@components/auth/Signin'
 import { useAuthContext } from '@src/context/AuthContextProvider';
 import { ROUTER_PATHS } from '@routerPaths'
 
 
+export interface LoginMeta {
+  targetPath: string;
+};
+
+
 const Login = () => {
 
   const navigate = useNavigate();
+  const location = useLocation();
   
   const authContext = useAuthContext();
-  console.log('Login authContext: ', authContext);
-  
+
 
   const handleSigninSubmit = async (data: SigninInfoModel) => {
-    console.log('handleSigninSubmit authContext: ', authContext);
     
     authContext?.signin(data.email, 
       () => {
-        navigate(ROUTER_PATHS.home, {replace: true});
+        /* Получаем целевую страницу, на к-ую нужно переключить юзера после успешной авторизации. Это м.б.:
+          1) страница, доступ к к-ой невозможен без авторизации (попали сюда из PrivateRoute) 
+          2) гл. страница (юзер сам зашел на страницу авторизации)
+        */
+        const targetPath = (location.state as LoginMeta)?.targetPath || ROUTER_PATHS.home;
+        // Навигируемся на целевую страницу, подчищая историю навигации
+        navigate(targetPath, {replace: true});
       }
     );
-    
   }
 
-  /*
-  useEffect(() => {
-    console.log('Login useEffect');
-    
-    if (!!authContext?.userName) {
-      console.log('already logged ', authContext?.userName);
-      navigate(-1);
-      // navigate(ROUTER_PATHS.home);
-    }
-  });
-  */
-
-  ///*
   // При попытке переключения на страницу Login при уже залогиненном юзере возвращаем обратно
   useEffect(() => {
     if (authContext?.isAuthorized()) {
-      // console.log('Login navigate(-1)');
       navigate(-1);
     }
   }, []);
-  //*/
 
-  /*
-  if (!!authContext?.userName) {
-    console.log('Login navigate(-1)');
-    // navigate(-1);
-    return <Navigate to='-1' replace />
-  }
-  */
 
   return (
     <>

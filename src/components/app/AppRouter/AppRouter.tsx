@@ -14,6 +14,7 @@ import Locations from '@pages/Locations'
 import Location from '@pages/Location'
 import Episodes from '@pages/Episodes'
 import Episode from '@pages/Episode'
+import PrivateRoute from '@components/app/PrivateRoute'
 
 
 // Маршруты приложения
@@ -27,13 +28,13 @@ const AppRouter = () => {
       <Route path={ROUTER_PATHS.login} element={<Login/>}/>
       <Route path={ROUTER_PATHS.logout} element={<Logout/>}/>
       
-      <Route element={<CategoryLayout/>}> 
+      <Route element={<PrivateRoute><CategoryLayout/></PrivateRoute>}> 
         <Route path={ROUTER_PATHS.characters} element={<Characters/>}/>
         <Route path={ROUTER_PATHS.locations} element={<Locations/>}/>
         <Route path={ROUTER_PATHS.episodes} element={<Episodes/>}/>
       </Route>
 
-      <Route element={<ItemLayout/>}> 
+      <Route element={<PrivateRoute><ItemLayout/></PrivateRoute>}> 
         <Route path={ROUTER_PATHS.characters + '/:id'} element={<Character/>}/>
         <Route path={ROUTER_PATHS.locations + '/:id'} element={<Location/>}/>
         <Route path={ROUTER_PATHS.episodes + '/:id'} element={<Episode/>}/>
