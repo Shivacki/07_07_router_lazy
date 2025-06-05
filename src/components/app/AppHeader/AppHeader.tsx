@@ -1,6 +1,6 @@
 import { NavLink, NavLinkRenderProps } from 'react-router-dom'
 
-import { ROUTER_PATHS } from '@routerPaths'
+import { ROUTER_PATHS, ROUTER_TITLE_CHARACTERS, ROUTER_TITLE_LOCATIONS, ROUTER_TITLE_EPISODES } from '@routerPaths'
 import { useAuthContext } from '@src/context/AuthContextProvider';
 
 
@@ -24,9 +24,9 @@ const AppHeader = () => {
         <li><NavLinkAuth/></li>
       </ul>
       <ul>
-        <li><NavLink to={ROUTER_PATHS.characters} className={getNavLinkClassName}>Персонажи</NavLink></li>
-        <li><NavLink to={ROUTER_PATHS.locations} className={getNavLinkClassName}>Локации</NavLink></li>
-        <li><NavLink to={ROUTER_PATHS.episodes} className={getNavLinkClassName}>Эпизоды</NavLink></li>
+        <li><NavLink to={ROUTER_PATHS.characters} className={getNavLinkClassName}>{ROUTER_TITLE_CHARACTERS}</NavLink></li>
+        <li><NavLink to={ROUTER_PATHS.locations} className={getNavLinkClassName}>{ROUTER_TITLE_LOCATIONS}</NavLink></li>
+        <li><NavLink to={ROUTER_PATHS.episodes} className={getNavLinkClassName}>{ROUTER_TITLE_EPISODES}</NavLink></li>
       </ul>
     </>
   )
