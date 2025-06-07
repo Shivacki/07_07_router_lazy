@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import { Outlet } from 'react-router-dom'
 
 const ItemLayout = () => {
@@ -5,7 +6,9 @@ const ItemLayout = () => {
   return (
     <div>
       <h3>Описание элемента:</h3>
-      <Outlet/>
+      <Suspense fallback={<>Загрузка кода...</>}>
+        <Outlet/>
+      </Suspense>
     </div>
   )
 }

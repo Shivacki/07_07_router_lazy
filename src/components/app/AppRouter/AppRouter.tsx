@@ -1,3 +1,4 @@
+import { lazy } from 'react'
 import { Routes, Route } from 'react-router-dom'
 
 import { ROUTER_PATHS } from '@routerPaths'
@@ -8,13 +9,16 @@ import Login from '@pages/Login'
 import Logout from '@pages/Logout'
 import CategoryLayout from '@layouts/CategoryLayout'
 import ItemLayout from '@layouts/ItemLayout'
-import Characters from '@pages/Characters'
-import Character from '@pages/Character'
-import Locations from '@pages/Locations'
-import Location from '@pages/Location'
-import Episodes from '@pages/Episodes'
-import Episode from '@pages/Episode'
 import PrivateRoute from '@components/app/PrivateRoute'
+
+
+// Динамическая загрузка компонентов
+const Characters = lazy(() => import('@pages/Characters'));
+const Character = lazy(() => import('@pages/Character'));
+const Locations = lazy(() => import('@pages/Locations'));
+const Location = lazy(() => import('@pages/Location'));
+const Episodes = lazy(() => import('@pages/Episodes'));
+const Episode = lazy(() => import('@pages/Episode'));
 
 
 // Маршруты приложения

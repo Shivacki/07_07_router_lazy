@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 
 import { ROUTER_PATHS_TITLE_MATCHING } from '@routerPaths'
@@ -15,7 +16,9 @@ const CategoryLayout = () => {
   return (
     <div>
       <h3>Список элементов в выбранной категории {layoutFinalTitle}:</h3>
-      <Outlet/>
+      <Suspense fallback={<>Загрузка кода...</>}>
+        <Outlet/>
+      </Suspense>
     </div>
   )
 }
