@@ -18,6 +18,7 @@ export default defineConfig({
       { find: '@src', replacement: '/src' },
       { find: '@components', replacement: '/src/components' },
       { find: '@InputText', replacement: '/src/components/common/InputText' }, 
+      { find: '@RenderingError', replacement: '/src/components/common/RenderingError' }, 
       { find: '@pages', replacement: '/src/pages' },
       { find: '@layouts', replacement: '/src/layouts' },
       { find: '@mock', replacement: '/src/mock' }, 

@@ -1,7 +1,9 @@
 import { Suspense } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
+import { ErrorBoundary } from 'react-error-boundary'
 
 import { ROUTER_PATHS_TITLE_MATCHING } from '@routerPaths'
+import RenderingError from '@RenderingError'
 
 
 const CategoryLayout = () => {
@@ -16,9 +18,12 @@ const CategoryLayout = () => {
   return (
     <div>
       <h3>Список элементов в выбранной категории {layoutFinalTitle}:</h3>
-      <Suspense fallback={<>Загрузка кода...</>}>
-        <Outlet/>
-      </Suspense>
+      
+      <ErrorBoundary fallback={<RenderingError/>}>
+        <Suspense fallback={<>Загрузка кода...</>}>
+          <Outlet/>
+        </Suspense>
+      </ErrorBoundary>
     </div>
   )
 }

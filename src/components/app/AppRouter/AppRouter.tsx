@@ -19,6 +19,8 @@ const Locations = lazy(() => import('@pages/Locations'));
 const Location = lazy(() => import('@pages/Location'));
 const Episodes = lazy(() => import('@pages/Episodes'));
 const Episode = lazy(() => import('@pages/Episode'));
+// Пример на случай отсутствия экспорта по умолчанию в модуле компонента
+// const Episode = lazy(() => import('@pages/Episode').then(module => ({default: module.exportName})));
 
 
 // Маршруты приложения

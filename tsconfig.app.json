@@ -30,6 +30,7 @@
       "@src/*": ["./src/*"],
       "@components/*": ["./src/components/*"],
       "@InputText": ["./src/components/common/InputText"],
+      "@RenderingError": ["./src/components/common/RenderingError"],
       "@pages/*": ["./src/pages/*"],
       "@layouts/*": ["./src/layouts/*"],
       "@mock/*": ["./src/mock/*"],
