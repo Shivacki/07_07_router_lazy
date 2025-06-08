@@ -1,7 +1,7 @@
 type CharacterStatus = 'Alive' | 'Dead' | 'unknown';
 type CharacterSpecies = 'Human' | 'Alien';
 type CharacterType = '' | 'Genetic experiment' | 'Superhuman (Ghost trains summoner)' | 'Human with antennae' | 'Human with ants in his eyes' | string;
-type CharacterGender = 'Male' | 'Female';
+type CharacterGender = 'Male' | 'Female' | 'Genderless';  // Genderless - for example, robot or machine
 type CharacterPathToImage = string;  // например, https://rickandmortyapi.com/api/character/avatar/1.jpeg
 type DateTimeISO8601 = string;
 

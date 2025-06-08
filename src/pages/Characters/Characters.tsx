@@ -1,16 +1,22 @@
+import { Ref } from 'react'
 import { Link } from 'react-router-dom'
 
 import { ROUTER_PATHS } from '@routerPaths'
 import { FETCH_PATHS } from '@fetchPaths'
 import { CharactersDto } from '@dto/characterDto'
-import CategoryFetcher from '@components/fetch/CategoryFetcher'
+import CategoryFetcher, { getLastRef } from '@components/fetch/CategoryFetcher'
 
 
-const renderData = (data: CharactersDto) => {
+const renderData = (data: CharactersDto, lastNodeRef?: Ref<any>) => {
+
   return  (
     <>
       <ul>
-        {data?.map(value => (<li key={value.id}><Link to={ROUTER_PATHS.characters + `/${value.id}`} state={value}>{value.name}</Link></li>))}
+        {data?.map((value, index) => (
+          <li key={value.id} ref={getLastRef(data?.length, index, lastNodeRef)}>
+            <Link to={ROUTER_PATHS.characters + `/${value.id}`} state={value}>{value.name}</Link>
+          </li>
+        ))}
       </ul>
     </>
   )
