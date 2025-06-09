@@ -7,7 +7,7 @@ import { CharactersDto } from '@dto/characterDto'
 import CategoryFetcher, { getLastRef } from '@components/fetch/CategoryFetcher'
 
 
-const renderData = (data: CharactersDto, lastNodeRef?: Ref<any>) => {
+const renderData = (data: CharactersDto, lastNodeRef: Ref<any>) => {
 
   return  (
     <>
